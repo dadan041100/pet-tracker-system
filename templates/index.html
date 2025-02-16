@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pet Tracker Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Pet Tracker System</h1>
+  </header>
+  <div class="container">
+    <!-- Sidebar with Navigation & Current Pet Card -->
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-info">
+        <h2>Current Pet</h2>
+        <div class="pet-card">
+          <!-- current_pet is passed from Flask -->
+          <img src="{{ current_pet.image_url or 'https://via.placeholder.com/150' }}" alt="Pet Image">
+          <h3>{{ current_pet.name }}</h3>
+          <p>{{ current_pet.type }} - {{ current_pet.breed }}</p>
+          <p>Age: {{ current_pet.age }}</p>
+          <p>Status: {{ current_pet.status }}</p>
+        </div>
+      </div>
+    </aside>
+    <!-- Main Content Area -->
+    <main class="content">
+      <!-- Owner Information -->
+      <section class="owner-details">
+        <h2>Owner Information</h2>
+        <div class="owner-info">
+          <p><strong>Name:</strong> {{ current_owner.name }}</p>
+          <p><strong>Email:</strong> {{ current_owner.email }}</p>
+          <p><strong>Contact Number:</strong> {{ current_owner.contact_number }}</p>
+          <p><strong>Backup Contact:</strong> {{ current_owner.backup_contact_number }}</p>
+          <p><strong>Easy Contact Account:</strong> {{ current_owner.easy_contact_account }}</p>
+        </div>
+      </section>
+      <!-- Address Information -->
+      <section class="address-details">
+        <h2>Address</h2>
+        <div class="address-info">
+          <p><strong>City:</strong> {{ current_address.city }}</p>
+          <p><strong>Municipality:</strong> {{ current_address.municipality }}</p>
+          <p><strong>Barangay:</strong> {{ current_address.barangay }}</p>
+          <p><strong>Street:</strong> {{ current_address.street }}</p>
+          <p><strong>Blk & Lot:</strong> {{ current_address.blk_and_lot }}</p>
+        </div>
+      </section>
+      <!-- Pet Information -->
+      <section class="pet-details">
+        <h2>Pet Information</h2>
+        <div class="pet-info">
+          <p><strong>Name:</strong> {{ current_pet.name }}</p>
+          <p><strong>Type:</strong> {{ current_pet.type }}</p>
+          <p><strong>Breed:</strong> {{ current_pet.breed }}</p>
+          <p><strong>Gender:</strong> {{ current_pet.gender }}</p>
+          <p><strong>Age:</strong> {{ current_pet.age }}</p>
+          <p><strong>Description:</strong> {{ current_pet.description }}</p>
+        </div>
+      </section>
+      <!-- Activity Log -->
+      <section class="activity-log">
+        <h2>Recent Activity</h2>
+        {% for activity in recent_activities %}
+          <div class="log-info">
+            <p><strong>Activity:</strong> {{ activity.activity_type }}</p>
+            <p><strong>Description:</strong> {{ activity.description }}</p>
+            <p><strong>Timestamp:</strong> {{ activity.timestamp }}</p>
+          </div>
+        {% else %}
+          <p>No recent activities found.</p>
+        {% endfor %}
+      </section>
+    </main>
+  </div>
+  <footer>
+    <p>&copy; 2025 Pet Tracker System. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

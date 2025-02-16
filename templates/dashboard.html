@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Pet Tracker</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+  <header>
+    <h1>Pet Tracker Dashboard</h1>
+  </header>
+  <div class="container">
+    <!-- Sidebar with Navigation & Current Pet Card -->
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-info">
+        <h2>Current Pet</h2>
+        <div class="pet-card">
+          <img src="{{ current_pet.image_url or 'https://via.placeholder.com/150' }}" alt="Pet Image">
+          <h3>{{ current_pet.name }}</h3>
+          <p>{{ current_pet.type }} - {{ current_pet.breed }}</p>
+          <p>Age: {{ current_pet.age }}</p>
+          <p>Status: {{ current_pet.status }}</p>
+        </div>
+      </div>
+    </aside>
+    <!-- Main Content Area -->
+    <main class="content">
+      <!-- Map Section -->
+      <section class="map-section">
+        <div id="map"></div>
+      </section>
+      <!-- Tracker Information Section -->
+      <section class="tracker-section">
+        <div id="tracker-info">
+          <!-- This content is loaded dynamically via JS (or rendered by the backend) -->
+        </div>
+      </section>
+    </main>
+  </div>
+  <footer>
+    <p>&copy; 2025 Pet Tracker System. All Rights Reserved.</p>
+  </footer>
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

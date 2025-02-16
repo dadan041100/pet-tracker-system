@@ -1,0 +1,217 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fb;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, #1a73e8, #4285f4);
+  color: #fff;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+/* Container for Sidebar & Content */
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background: #fff;
+  border-right: 1px solid #e0e0e0;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+}
+
+.sidebar nav ul {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.sidebar nav ul li {
+  margin-bottom: 15px;
+}
+
+.sidebar nav ul li a {
+  text-decoration: none;
+  color: #1a73e8;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.sidebar nav ul li a:hover {
+  color: #1558b0;
+}
+
+/* Sidebar Info */
+.sidebar-info {
+  background: #f8f9fb;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.sidebar-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.pet-card {
+  margin-bottom: 15px;
+}
+
+.pet-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.pet-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+  color: #1a73e8;
+}
+
+.pet-card p {
+  font-size: 0.95rem;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+/* Main Content Area */
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Sections (Home Page) */
+.owner-details,
+.address-details,
+.pet-details,
+.activity-log {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  margin-bottom: 30px;
+}
+
+.owner-details h2,
+.address-details h2,
+.pet-details h2,
+.activity-log h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 10px;
+  color: #1a73e8;
+}
+
+.owner-info p,
+.address-info p,
+.pet-info p,
+.log-info p {
+  font-size: 1rem;
+  margin: 10px 0;
+  color: #555;
+}
+
+/* Dashboard: Map Section */
+.map-section {
+  margin-bottom: 30px;
+}
+
+#map {
+  width: 100%;
+  height: 450px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+/* Dashboard: Tracker Section */
+.tracker-section {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  margin-bottom: 30px;
+}
+
+.tracker-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 10px;
+  color: #1a73e8;
+}
+
+#tracker-info .tracker {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+#tracker-info .tracker:last-child {
+  border-bottom: none;
+}
+
+#tracker-info .tracker p {
+  font-size: 1rem;
+  margin: 8px 0;
+  color: #555;
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(135deg, #1a73e8, #4285f4);
+  color: #fff;
+  text-align: center;
+  padding: 25px 20px;
+  margin-top: 40px;
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+}
+
+footer p {
+  font-size: 1rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 20px;
+  }
+  
+  #map {
+    height: 300px;
+  }
+}

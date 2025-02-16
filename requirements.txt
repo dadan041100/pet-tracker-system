@@ -1,0 +1,6 @@
+flask==2.0.3
+flask-sqlalchemy==2.5.1
+flask-migrate==3.1.0
+faker==13.3.4
+python-dotenv==0.19.2
+geographiclib==1.52
