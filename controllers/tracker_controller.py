@@ -20,6 +20,7 @@ def get_trackers():
             'last_seen_time': t.last_seen_time.isoformat(),
             'status': t.status,
             # Include pet details from your seeder
+            'pet_image_url': pet.image_url if pet and pet.image_url else 'https://via.placeholder.com/100',
             'pet_name': pet.name if pet else 'Unknown',
             'pet_type': pet.type if pet else 'Unknown',
             'pet_breed': pet.breed if pet else 'Unknown',

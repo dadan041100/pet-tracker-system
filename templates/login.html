@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Pet Tracker System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Pet Tracker System</h1>
+  </header>
+  <div class="container login-container">
+    <div class="login-card">
+      <h2>Login</h2>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <ul class="flash-messages">
+            {% for category, message in messages %}
+              <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+      <form action="{{ url_for('login') }}" method="post">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" name="email" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" name="password" id="password" placeholder="Enter your password" required>
+        </div>
+        <div class="form-group remember-me">
+          <input type="checkbox" name="remember" id="remember">
+          <label for="remember">Remember me</label>
+        </div>
+        <button type="submit" class="btn">Login</button>
+      </form>
+      <p class="login-text">Don't have an account? <a href="{{ url_for('register') }}">Register here</a>.</p>
+    </div>
+  </div>
+  
+  <!-- Logged Out Modal (if applicable) -->
+  {% if session.get('logged_out') %}
+  <div id="loggedOutModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>You have been logged out.</p>
+    </div>
+  </div>
+  {% endif %}
+  
+  <footer>
+    <p>&copy; 2025 Pet Tracker System. All Rights Reserved.</p>
+  </footer>
+  
+  <script>
+    // Display the "Logged Out" modal if it exists
+    document.addEventListener('DOMContentLoaded', function() {
+      var modal = document.getElementById("loggedOutModal");
+      if (modal) {
+        var closeBtn = modal.querySelector(".close");
+        modal.style.display = "block";
+        closeBtn.onclick = function() {
+          modal.style.display = "none";
+        };
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        };
+      }
+    });
+  </script>
+</body>
+</html>

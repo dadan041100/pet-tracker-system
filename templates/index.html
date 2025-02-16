@@ -9,6 +9,8 @@
 </head>
 <body>
   <header>
+    <!-- Logout button placed at the top left -->
+    <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
     <h1>Pet Tracker System</h1>
   </header>
   <div class="container">
@@ -24,7 +26,7 @@
         <h2>Current Pet</h2>
         <div class="pet-card">
           <!-- current_pet is passed from Flask -->
-          <img src="{{ current_pet.image_url or 'https://via.placeholder.com/150' }}" alt="Pet Image">
+          <img src="{{ current_pet.image_url or url_for('static', filename='images/sample-dog.jpg') }}" alt="Pet Image">
           <h3>{{ current_pet.name }}</h3>
           <p>{{ current_pet.type }} - {{ current_pet.breed }}</p>
           <p>Age: {{ current_pet.age }}</p>
@@ -86,5 +88,34 @@
   <footer>
     <p>&copy; 2025 Pet Tracker System. All Rights Reserved.</p>
   </footer>
+  
+  <!-- Logged In Modal -->
+  <div id="loggedInModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>You are logged in as {{ current_owner.email }}</p>
+    </div>
+  </div>
+  
+  <script>
+    // Modal functionality: Show modal on page load and allow it to be closed.
+    document.addEventListener('DOMContentLoaded', function() {
+      var modal = document.getElementById("loggedInModal");
+      var closeBtn = document.querySelector("#loggedInModal .close");
+      if (modal) {
+        modal.style.display = "block";
+      }
+      if (closeBtn) {
+        closeBtn.onclick = function() {
+          modal.style.display = "none";
+        }
+      }
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+    });
+  </script>
 </body>
 </html>

@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
               // Create the popup content with a placeholder image and pet details
               let popupContent = `
                 <div style="text-align:center;">
-                  <img src="https://via.placeholder.com/100" alt="Pet Image" style="width:100px; height:100px; border-radius:50%; margin-bottom:10px;">
+                  <img src="${tracker.pet_image_url}" alt="Pet Image" style="width:100px; height:100px; border-radius:50%; margin-bottom:10px;">
                   <h3>${tracker.pet_name}</h3>
                   <p><strong>Type:</strong> ${tracker.pet_type}</p>
                   <p><strong>Breed:</strong> ${tracker.pet_breed}</p>

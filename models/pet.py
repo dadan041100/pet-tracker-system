@@ -11,6 +11,7 @@ class Pet(db.Model):
     gender = db.Column(db.String(10), nullable=False)
     age = db.Column(db.Integer, nullable=False)
     description = db.Column(db.Text, nullable=True)
+    image_url = db.Column(db.String(255), nullable=True)
     
     tracker = db.relationship('Tracker', backref='pet', uselist=False)
     activity_logs = db.relationship('ActivityLog', backref='pet', lazy=True)

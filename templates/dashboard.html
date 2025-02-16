@@ -25,7 +25,7 @@
       <div class="sidebar-info">
         <h2>Current Pet</h2>
         <div class="pet-card">
-          <img src="{{ current_pet.image_url or 'https://via.placeholder.com/150' }}" alt="Pet Image">
+        <img src="{{ current_pet.image_url or url_for('static', filename='images/sample-dog.jpg') }}" alt="Pet Image">
           <h3>{{ current_pet.name }}</h3>
           <p>{{ current_pet.type }} - {{ current_pet.breed }}</p>
           <p>Age: {{ current_pet.age }}</p>
